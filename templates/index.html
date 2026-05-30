@@ -1,0 +1,36 @@
+<<!DOCTYPE html>
+<html>
+<head>
+    <title>Crop Risk Management System</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; background-color: #f4f4f4; text-align: center; padding: 50px; }
+        .container { background: white; padding: 30px; border-radius: 15px; display: inline-block; box-shadow: 0px 4px 10px rgba(0,0,0,0.1); }
+        input { margin: 10px; padding: 10px; width: 250px; border: 1px solid #ccc; border-radius: 5px; }
+        button { padding: 12px 25px; background-color: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #218838; }
+        .result-box { margin-top: 25px; padding: 15px; border-top: 2px solid #eee; }
+        .risk-warning { color: #d9534f; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crop Risk Analysis & Management System</h1>
+        <form action="/predict" method="post">
+            <input type="text" name="Nitrogen" placeholder="Nitrogen (N)" required><br>
+            <input type="text" name="Phosphorus" placeholder="Phosphorus (P)" required><br>
+            <input type="text" name="Potassium" placeholder="Potassium (K)" required><br>
+            <input type="text" name="Temperature" placeholder="Temperature (°C)" required><br>
+            <input type="text" name="Humidity" placeholder="Humidity (%)" required><br>
+            <input type="text" name="Ph" placeholder="pH Level" required><br>
+            <input type="text" name="Rainfall" placeholder="Rainfall (mm)" required><br>
+            <button type="submit">Analyze Risk & Predict Crop</button>
+        </form>
+
+        <div class="result-box">
+    <h3>{{ prediction_text }}</h3>
+    <h4 class="risk-warning">{{ risk_text }}</h4>
+    
+    <p style="color: green; font-weight: bold; margin-top: 10px;">
+        {{ mgmt_text }}
+    </p>
+</div>
